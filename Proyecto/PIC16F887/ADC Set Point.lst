@@ -1,0 +1,178 @@
+CCS PCM C Compiler, Version 5.076, 56587               24-feb.-22 12:23
+
+               Filename:   E:\Martin Hdez\Desktop\CCS 16F\887\Práctica 6\ADC Set Point.lst
+
+               ROM used:   77 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   6 (2%) at main() level
+                           6 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   01E
+0003:  NOP
+.................... /* 
+.................... AUTOR: MICROSIDE TECHNOLOGY S.A. DE C.V. 
+.................... FECHA: JUNIO 2019 
+.................... */ 
+....................  
+.................... /* 
+.................... --------------------------------------------------------------------------- 
+.................... Implementar una lectura analógica de un potenciómetro, si el valor del ADC supera 
+.................... un Set Point, el LED encenderá. 
+.................... --------------------------------------------------------------------------- 
+.................... */ 
+....................  
+....................  
+.................... #include <16F887.h>                            //Incluye el microcontrolador con el que se va a trabajar  
+.................... //////////// Standard Header file for the PIC16F887 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F887 
+....................  
+.................... #list 
+....................  
+.................... #DEVICE ADC=8                                   //Configura el ADC a 8 bits 
+.................... #use delay(clock=20Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador  
+....................  
+....................  
+.................... #define LED PIN_A1                              //Pin donde está conectado el LED del X-TRAINER 
+....................  
+.................... int ValorPot;                                   //Variable para almacenar el valor leído del ADC 
+....................  
+.................... void SisInit(void) 
+....................  
+.................... { 
+....................  
+.................... setup_oscillator(OSC_8MHZ);                    //Configura oscilador interno 
+0004:  MOVLW  71
+0005:  BSF    03.5
+0006:  MOVWF  0F
+0007:  CLRF   10
+0008:  MOVF   0F,W
+....................  
+.................... setup_adc_ports (sAN0);                         //Configura solo el puerto A0 como entrada analógica 
+0009:  BSF    03.6
+000A:  MOVF   09,W
+000B:  ANDLW  C0
+000C:  MOVWF  09
+000D:  BCF    03.6
+000E:  BCF    1F.4
+000F:  BCF    1F.5
+0010:  MOVLW  01
+0011:  BSF    03.6
+0012:  MOVWF  08
+....................  
+.................... setup_adc (ADC_CLOCK_DIV_8);                   //Configura oscilador para la conversión 
+0013:  BCF    03.5
+0014:  BCF    03.6
+0015:  BSF    1F.6
+0016:  BCF    1F.7
+0017:  BSF    03.5
+0018:  BCF    1F.7
+0019:  BCF    03.5
+001A:  BSF    1F.0
+001B:  BCF    0A.3
+001C:  BCF    0A.4
+001D:  GOTO   033 (RETURN)
+....................  
+.................... } 
+....................  
+....................   
+....................  
+.................... void main() 
+001E:  MOVF   03,W
+001F:  ANDLW  1F
+0020:  MOVWF  03
+0021:  BSF    03.5
+0022:  BSF    03.6
+0023:  MOVF   09,W
+0024:  ANDLW  C0
+0025:  MOVWF  09
+0026:  BCF    03.6
+0027:  BCF    1F.4
+0028:  BCF    1F.5
+0029:  MOVLW  00
+002A:  BSF    03.6
+002B:  MOVWF  08
+002C:  BCF    03.5
+002D:  CLRF   07
+002E:  CLRF   08
+002F:  CLRF   09
+0030:  BCF    03.7
+....................  
+.................... { 
+....................  
+....................     SisInit(); 
+0031:  BCF    03.6
+0032:  GOTO   004
+....................  
+....................     while (1) 
+....................  
+....................   { 
+....................  
+....................        set_adc_channel (0);                 //Selecciona el canal 0 para la conversión 
+0033:  MOVLW  00
+0034:  MOVWF  78
+0035:  MOVF   1F,W
+0036:  ANDLW  C3
+0037:  IORWF  78,W
+0038:  MOVWF  1F
+....................  
+....................        ValorPot = read_adc ();              //Lee el valor del ADC y lo guarda en la variable 
+0039:  BSF    1F.1
+003A:  BTFSC  1F.1
+003B:  GOTO   03A
+003C:  MOVF   1E,W
+003D:  MOVWF  20
+....................  
+....................       if (ValorPot >= 128)                  //Compara el valor de el ADC con 128 
+003E:  MOVF   20,W
+003F:  SUBLW  7F
+0040:  BTFSC  03.0
+0041:  GOTO   047
+....................  
+....................              { 
+....................  
+....................                      output_HIGH (LED);     // Leds activos 
+0042:  BSF    03.5
+0043:  BCF    05.1
+0044:  BCF    03.5
+0045:  BSF    05.1
+....................  
+....................              } 
+0046:  GOTO   04B
+....................  
+....................       else 
+....................  
+....................              { 
+....................  
+....................                     output_LOW (LED);       // Leds activos 
+0047:  BSF    03.5
+0048:  BCF    05.1
+0049:  BCF    03.5
+004A:  BCF    05.1
+....................  
+....................              } 
+004B:  GOTO   033
+....................  
+....................        } 
+....................  
+.................... } 
+....................  
+004C:  SLEEP
+....................   
+
+Configuration Fuses:
+   Word  1: 2FE2   HS NOWDT PUT MCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

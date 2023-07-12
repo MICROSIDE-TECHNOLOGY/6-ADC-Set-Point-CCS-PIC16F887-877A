@@ -1,0 +1,61 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     ValorPot
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  SisInit
+000014  MAIN
+000014  @cinit1
+00001E  @cinit2
+
+Project Directory:
+    E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 6\
+
+Project Files:
+    ADC Set Point.c                                         [24-feb.-22 12:25  CRC=19C0F461]
+    ..\..\..\..\..\Program Files\PICC\Devices\16F877A.h     [15-ene.-18 15:53  CRC=63418C39]
+
+Source signature=E0440CD3
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=D7DC
+
+Units:
+    ADC Set Point (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   ADC Set Point.xsym
+    Errors:      ADC Set Point.err
+    Ext Symbols: ADC Set Point.esym
+    INHX8:       ADC Set Point.hex
+    Symbols:     ADC Set Point.sym
+    List:        ADC Set Point.lst
+    Debug/COFF:  ADC Set Point.cof
+    Project:     ADC Set Point.ccspjt
+    Call Tree:   ADC Set Point.tre
+    Statistics:  ADC Set Point.STA
