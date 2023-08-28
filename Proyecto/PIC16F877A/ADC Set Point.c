@@ -10,7 +10,6 @@ un Set Point, el LED encenderá.
 ---------------------------------------------------------------------------
 */
 
-
 #include <16F877A.h>                            //Incluye el microcontrolador con el que se va a trabajar 
 #DEVICE ADC=8                                   //Configura el ADC a 8 bits
 #use delay(clock=20Mhz, crystal)                //Tipo de oscilador y frecuencia dependiendo del microcontrolador 
@@ -20,51 +19,36 @@ un Set Point, el LED encenderá.
 
 int ValorPot;                                   //Variable para almacenar el valor leído del ADC
 
-void SisInit(void)
+void SisInit(void) {
+    
+    setup_adc_ports (AN0);                         //Configura solo el puerto A0 como entrada analógica
 
-{
-
-
-setup_adc_ports (AN0);                         //Configura solo el puerto A0 como entrada analógica
-
-setup_adc (ADC_CLOCK_DIV_8);                   //Configura oscilador para la conversión
-
+    setup_adc (ADC_CLOCK_DIV_8);                   //Configura oscilador para la conversión
 }
 
  
 
-void main()
-
-{
+void main() {
 
     SisInit();
 
-    while (1)
+    while (1) {
 
-  {
+        set_adc_channel (0);                 //Selecciona el canal 0 para la conversión
 
-       set_adc_channel (0);                 //Selecciona el canal 0 para la conversión
+        ValorPot = read_adc ();              //Lee el valor del ADC y lo guarda en la variable
 
-       ValorPot = read_adc ();              //Lee el valor del ADC y lo guarda en la variable
+        if (ValorPot >= 128) {                //Compara el valor de el ADC con 128
 
-      if (ValorPot >= 128)                  //Compara el valor de el ADC con 128
+            output_HIGH (LED);     // Leds activos
 
-             {
+        } else {
 
-                     output_HIGH (LED);     // Leds activos
+            output_LOW (LED);       // Leds activos
 
-             }
+        }
 
-      else
-
-             {
-
-                    output_LOW (LED);       // Leds activos
-
-             }
-
-       }
-
+    }
 }
 
  
