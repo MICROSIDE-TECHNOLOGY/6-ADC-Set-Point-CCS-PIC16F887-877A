@@ -1,9 +1,9 @@
 
-ROM used:   77/8192 (1%)
-            77/8192 (1%) including unused fragments
+ROM used:   73/8192 (1%)
+            73/8192 (1%) including unused fragments
 
             0.1 Average locations per line
-            5.9 Average locations per statement
+            6.1 Average locations per statement
 
 RAM used:   6/368 (2%) at main() level
             6/368 (2%) worst case
@@ -13,33 +13,32 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   72    13 100  ADC Set Point.c
-  786     0   0  ..\..\..\..\..\Program Files\PICC\Devices\16F887.h
+   42    12 100  ADC Set Point.c
+  810     0   0  ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\16F887.h
 ----- -----
-  858    13 Total
+  852    12 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0     26  34    0     54  1.2  SisInit
-0     47  61    0    152  3.4  MAIN
- Inline         0             @cinit1
+0     69  95    0    212  3.6  main
+ Inline         0    207  3.1  @cinit1
 
 Program metrics:
     Functions               2
-    Statements              13
-    Comments                164
-    Volume (V)              251
-    Difficulty (D)          4.4
-    Effort to implement (E) 1094
-    Time to implement (T)   1 minutes
+    Statements              12
+    Comments                174
+    Volume (V)              506
+    Difficulty (D)          6.7
+    Effort to implement (E) 3409
+    Time to implement (T)   3 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   1
-    Maintainability (MI)    165
+    Cyclomatic Complexity   2
+    Maintainability (MI)    161
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF    73  1971  
+00004-007FF    69  1975  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

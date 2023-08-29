@@ -1,7 +1,7 @@
 [PROJECT]
 Target=ADC Set Point.hex
 Processor_Text=PIC16F887
-CCSVersion=5.076
+CCSVersion=5.115d
 Compiler=PCM
 [Target Data]
 FileList=ADC Set Point.c
@@ -9,15 +9,35 @@ FileList=ADC Set Point.c
 Type=4
 [mru-list]
 1=ADC Set Point.c
-[Units]
-Count=1
-1=ADC Set Point (main)
 
 [defines]
-buildcount=1
+buildcount=3
 
 [ProjectLog]
-Days=1
+Days=2
 D1=24-02-2022
 D1_L=1
 D1_L1=[44664]Project Closed.
+D2=29-08-2023
+D2_L=6
+D2_L1=[54358]Project Opened.
+D2_L2=[54546]Started Editing.
+D2_L3=[54676]Stopped Editing.
+TotalEdit=3
+TotalDebug=0
+D2_E=3
+D2_D=0
+D2_L4=[54676]Project Closed.
+D2_L5=[54698]Project Opened.
+D2_L6=[54712]Project Closed.
+
+[fileformats]
+forcecoff=0
+
+[Opened Files]
+1=ADC Set Point.c
+t1=1
+Count=1
+[Units]
+Count=1
+1=ADC Set Point (main)

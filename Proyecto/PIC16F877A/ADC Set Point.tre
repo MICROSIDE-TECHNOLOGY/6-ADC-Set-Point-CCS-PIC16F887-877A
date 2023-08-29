@@ -1,4 +1,4 @@
 青ADC Set Point
-   青MAIN  0/39  Ram=0
+   青main  0/49  Ram=0
       団@cinit1  (Inline)  Ram=0
-      青SisInit  0/16  Ram=0
+      青@cinit2  (Inline)  Ram=0

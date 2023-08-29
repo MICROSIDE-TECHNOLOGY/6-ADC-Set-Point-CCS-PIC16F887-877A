@@ -1,8 +1,8 @@
-004-005 @READ_PROGRAM_MEMORY8.P1
-004-005 @WRITE_PROGRAM_MEMORY8.P2
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
 008     PSP_DATA
-015     CCP_1_LOW
 015     CCP_1
+015     CCP_1_LOW
 016     CCP_1_HIGH
 01B     CCP_2_LOW
 01B     CCP_2
@@ -15,29 +15,27 @@
 07A     @SCRATCH
 09C.6   C1OUT
 09C.7   C2OUT
-10D-10E @READ_PROGRAM_MEMORY8.P1
-10D-10E @WRITE_PROGRAM_MEMORY8.P2
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  SisInit
-000014  MAIN
-000014  @cinit1
-00001E  @cinit2
+000004  main
+000004  @cinit1
+00000E  @cinit2
 
 Project Directory:
-    E:\Martin Hdez\Desktop\CCS 16F\877A\Práctica 6\
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\6-ADC-Set-Point-CCS-PIC16F887-877A\Proyecto\PIC16F877A\
 
 Project Files:
-    ADC Set Point.c                                         [24-feb.-22 12:25  CRC=19C0F461]
-    ..\..\..\..\..\Program Files\PICC\Devices\16F877A.h     [15-ene.-18 15:53  CRC=63418C39]
+    ADC Set Point.c                                         [29-ago.-23 15:03  CRC=53D68FE3]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICCDEMO\Devices\16F877A.h [02-may.-23 08:27  CRC=32478F9C]
 
-Source signature=E0440CD3
+Source signature=B865AF1B
 Program memory checksum=0000
-Program memory CRC=0000
-Hex file CRC=D7DC
+Hex file CRC=AD92
 
 Units:
-    ADC Set Point (main)
+    C:\Users\victo\OneDrive\Documentos\X-TRAINER-hands-on\CCS\PIC16F\6-ADC-Set-Point-CCS-PIC16F887-877A\Proyecto\PIC16F877A\ADC Set Point (main)
 
 Compiler Settings:
     Processor:      PIC16F877A
@@ -46,7 +44,10 @@ Compiler Settings:
     Opt Level:      9
     Short,Int,Long: UNSIGNED: 1,8,16
     Float,Double:   32,32
-    Compile Mode:       CCS5
+    Compile Mode:   CCS5
+
+Compiler operating in Evaluation Mode
+To obtain a fully enabled compiler visit www.ccsinfo.com/products
 
 Output Files:
     XREF file:   ADC Set Point.xsym
